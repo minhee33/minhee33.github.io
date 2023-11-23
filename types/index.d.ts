@@ -262,6 +262,13 @@ export interface Honors {
   link: string;
 }
 
+export interface AccademicAccomplishments {
+  title: string;
+  description: string;
+  icon?: string;
+  link: string;
+}
+
 export interface Introduction {
   introduction?: string;
   career?: string;
@@ -318,6 +325,11 @@ export interface Config {
    * Honors
    */
   honors?: Array<Honors>;
+
+  /**
+   * AccademicAccomplishments
+   */
+  accademicAccomplishments?: Array<AccademicAccomplishments>;
 
   /**
    * Introduction

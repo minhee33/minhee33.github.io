@@ -29,6 +29,7 @@ import ExternalProject from './external-project';
 import Award from './awards';
 import Honor from './honors';
 import Introduction from './introduction';
+import AcademicAccomplishment from './academic-accomplishment';
 
 const bgColor = 'bg-base-300';
 
@@ -203,7 +204,6 @@ const GitProfile = ({ config }) => {
                   </div>
                   <div className="lg:col-span-2 col-span-1">
                     <div className="grid grid-cols-1 gap-6">
-                      여기에 넣자!
                       <Project
                         repo={repo}
                         loading={loading}
@@ -223,6 +223,13 @@ const GitProfile = ({ config }) => {
                       <Honor
                         loading={loading}
                         externalProjects={sanitizedConfig.honors}
+                        googleAnalytics={sanitizedConfig.googleAnalytics}
+                      />
+                      <AcademicAccomplishment
+                        loading={loading}
+                        accademicAccomplishments={
+                          sanitizedConfig.accademicAccomplishments
+                        }
                         googleAnalytics={sanitizedConfig.googleAnalytics}
                       />
                     </div>
@@ -294,6 +301,14 @@ GitProfile.propTypes = {
       })
     ),
     honors: PropTypes.arrayOf(
+      PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+        link: PropTypes.string.isRequired,
+        icon: PropTypes.string,
+      })
+    ),
+    accademicAccomplishments: PropTypes.arrayOf(
       PropTypes.shape({
         title: PropTypes.string.isRequired,
         description: PropTypes.string.isRequired,
