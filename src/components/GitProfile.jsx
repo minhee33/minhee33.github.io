@@ -10,7 +10,7 @@ import Experience from './experience';
 import Certification from './certification';
 import Education from './education';
 import Project from './project';
-import Blog from './blog';
+// import Blog from './blog';
 import Footer from './footer';
 import {
   genericError,
@@ -26,6 +26,9 @@ import PropTypes from 'prop-types';
 import '../assets/index.css';
 import { formatDistance } from 'date-fns';
 import ExternalProject from './external-project';
+import Award from './awards';
+import Honor from './honors';
+import Introduction from './introduction';
 
 const bgColor = 'bg-base-300';
 
@@ -171,6 +174,9 @@ const GitProfile = ({ config }) => {
                         avatarRing={!sanitizedConfig.themeConfig.hideAvatarRing}
                         resume={sanitizedConfig.resume}
                       />
+                      <Introduction
+                        introduction={sanitizedConfig.introduction}
+                      />
                       <Details
                         profile={profile}
                         loading={loading}
@@ -197,6 +203,7 @@ const GitProfile = ({ config }) => {
                   </div>
                   <div className="lg:col-span-2 col-span-1">
                     <div className="grid grid-cols-1 gap-6">
+                      여기에 넣자!
                       <Project
                         repo={repo}
                         loading={loading}
@@ -208,10 +215,15 @@ const GitProfile = ({ config }) => {
                         externalProjects={sanitizedConfig.externalProjects}
                         googleAnalytics={sanitizedConfig.googleAnalytics}
                       />
-                      <Blog
+                      <Award
                         loading={loading}
+                        externalProjects={sanitizedConfig.awards}
                         googleAnalytics={sanitizedConfig.googleAnalytics}
-                        blog={sanitizedConfig.blog}
+                      />
+                      <Honor
+                        loading={loading}
+                        externalProjects={sanitizedConfig.honors}
+                        googleAnalytics={sanitizedConfig.googleAnalytics}
                       />
                     </div>
                   </div>
@@ -273,6 +285,26 @@ GitProfile.propTypes = {
         imageUrl: PropTypes.string,
       })
     ),
+    awards: PropTypes.arrayOf(
+      PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+        link: PropTypes.string.isRequired,
+        icon: PropTypes.string,
+      })
+    ),
+    honors: PropTypes.arrayOf(
+      PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+        link: PropTypes.string.isRequired,
+        icon: PropTypes.string,
+      })
+    ),
+    introduction: PropTypes.shape({
+      introduction: PropTypes.string,
+      career: PropTypes.string,
+    }),
     experiences: PropTypes.arrayOf(
       PropTypes.shape({
         company: PropTypes.string,

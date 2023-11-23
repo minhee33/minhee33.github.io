@@ -248,6 +248,25 @@ export interface ExternalProjects {
   link: string;
 }
 
+export interface Awards {
+  title: string;
+  description: string;
+  icon?: string;
+  link: string;
+}
+
+export interface Honors {
+  title: string;
+  description: string;
+  icon?: string;
+  link: string;
+}
+
+export interface Introduction {
+  introduction?: string;
+  career?: string;
+}
+
 export interface Education {
   institution?: string;
   degree?: string;
@@ -289,6 +308,21 @@ export interface Config {
    * External Projects
    */
   externalProjects?: Array<ExternalProjects>;
+
+  /**
+   * Awards
+   */
+  awards?: Array<Awards>;
+
+  /**
+   * Honors
+   */
+  honors?: Array<Honors>;
+
+  /**
+   * Introduction
+   */
+  introduction?: Introduction;
 
   /**
    * Certifications list
